@@ -1,9 +1,11 @@
 package graph
 
 import graph.core.Edge
+import graph.core.EdgeType
+import graph.core.EdgeType.DIRECTED
+import graph.core.EdgeType.UNDIRECTED
 import graph.core.Graph
 import graph.core.Vertex
-import java.util.ArrayList
 
 class AdjacencyList<T> : Graph<T> {
     private val adjacencies = HashMap<Vertex<T>, ArrayList<Edge<T>>>()
@@ -23,4 +25,13 @@ class AdjacencyList<T> : Graph<T> {
         addDirectedEdge(source, destination, weight)
         addDirectedEdge(destination, source, weight)
     }
+
+    override fun add(edgeType: EdgeType, source: Vertex<T>, destination: Vertex<T>, weight: Double) {
+        when (edgeType) {
+            DIRECTED -> addDirectedEdge(source, destination, weight)
+            UNDIRECTED -> addUndirectedEdge(source, destination, weight)
+        }
+    }
+
+    override fun edges(source: Vertex<T>) = adjacencies[source] ?: arrayListOf()
 }
