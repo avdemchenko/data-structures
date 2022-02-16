@@ -13,4 +13,14 @@ class AdjacencyList<T> : Graph<T> {
         adjacencies[vertex] = ArrayList()
         return vertex
     }
+
+    override fun addDirectedEdge(source: Vertex<T>, destination: Vertex<T>, weight: Double) {
+        val edge = Edge(source, destination, weight)
+        adjacencies[source]?.add(edge)
+    }
+
+    override fun addUndirectedEdge(source: Vertex<T>, destination: Vertex<T>, weight: Double) {
+        addDirectedEdge(source, destination, weight)
+        addDirectedEdge(destination, source, weight)
+    }
 }
