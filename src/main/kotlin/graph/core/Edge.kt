@@ -1,4 +1,4 @@
-package graph
+package graph.core
 
 data class Edge<T>(
     val source: Vertex<T>,
