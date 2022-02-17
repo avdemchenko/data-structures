@@ -34,4 +34,8 @@ class AdjacencyList<T> : Graph<T> {
     }
 
     override fun edges(source: Vertex<T>) = adjacencies[source] ?: arrayListOf()
+
+    override fun weight(source: Vertex<T>, destination: Vertex<T>): Double? {
+        return edges(source).firstOrNull { it.destination == destination }?.weight
+    }
 }

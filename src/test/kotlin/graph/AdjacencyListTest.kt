@@ -144,4 +144,46 @@ class AdjacencyListTest {
         assertThat(secondVertexEdge.destination).isEqualTo(firstVertex)
         assertThat(secondVertexEdge.weight).isEqualTo(1.0)
     }
+
+    @Test
+    fun `should get weight of the directed edge`() {
+        // given
+        val adjacencyList = AdjacencyList<String>()
+
+        // when
+        val firstVertex = adjacencyList.createVertex("first value")
+        val secondVertex = adjacencyList.createVertex("last value")
+
+        // and
+        adjacencyList.add(DIRECTED, firstVertex, secondVertex, 1.0)
+
+        // then
+        val directWeight = adjacencyList.weight(firstVertex, secondVertex)
+        assertThat(directWeight).isEqualTo(1.0)
+
+        // and
+        val reversedWeight = adjacencyList.weight(secondVertex, firstVertex)
+        assertThat(reversedWeight).isNull()
+    }
+
+    @Test
+    fun `should get weight of the undirected edge`() {
+        // given
+        val adjacencyList = AdjacencyList<String>()
+
+        // when
+        val firstVertex = adjacencyList.createVertex("first value")
+        val secondVertex = adjacencyList.createVertex("last value")
+
+        // and
+        adjacencyList.add(UNDIRECTED, firstVertex, secondVertex, 1.0)
+
+        // then
+        val directWeight = adjacencyList.weight(firstVertex, secondVertex)
+        assertThat(directWeight).isEqualTo(1.0)
+
+        // and
+        val reversedWeight = adjacencyList.weight(secondVertex, firstVertex)
+        assertThat(reversedWeight).isEqualTo(1.0)
+    }
 }
