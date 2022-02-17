@@ -38,4 +38,12 @@ class AdjacencyList<T> : Graph<T> {
     override fun weight(source: Vertex<T>, destination: Vertex<T>): Double? {
         return edges(source).firstOrNull { it.destination == destination }?.weight
     }
+
+    fun visualise() =
+        buildString {
+            adjacencies.forEach { (vertex, edges) ->
+                val edge = edges.joinToString { it.destination.data.toString() }
+                append("${vertex.data} ====> [$edge]\n")
+            }
+        }
 }

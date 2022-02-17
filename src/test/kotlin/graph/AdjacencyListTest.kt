@@ -186,4 +186,66 @@ class AdjacencyListTest {
         val reversedWeight = adjacencyList.weight(secondVertex, firstVertex)
         assertThat(reversedWeight).isEqualTo(1.0)
     }
+
+    @Test
+    fun `should visualise undirected edge`() {
+        // given
+        val adjacencyList = AdjacencyList<String>()
+
+        // when
+        val firstVertex = adjacencyList.createVertex("first value")
+        val secondVertex = adjacencyList.createVertex("last value")
+
+        // and
+        adjacencyList.add(UNDIRECTED, firstVertex, secondVertex, 1.0)
+
+        // then
+        val visualisedString = adjacencyList.visualise()
+        val stringEdges = visualisedString.split("\n")
+        assertThat(stringEdges.size).isEqualTo(3)
+
+        // and
+        val edgesIterator = stringEdges.iterator()
+        val firstString = edgesIterator.next()
+        assertThat(firstString).isEqualTo("first value ====> [last value]")
+
+        // and
+        val secondString = edgesIterator.next()
+        assertThat(secondString).isEqualTo("last value ====> [first value]")
+
+        // and
+        val thirdString = edgesIterator.next()
+        assertThat(thirdString).isEqualTo("")
+    }
+
+    @Test
+    fun `should visualise directed edge`() {
+        // given
+        val adjacencyList = AdjacencyList<String>()
+
+        // when
+        val firstVertex = adjacencyList.createVertex("first value")
+        val secondVertex = adjacencyList.createVertex("last value")
+
+        // and
+        adjacencyList.add(DIRECTED, firstVertex, secondVertex, 1.0)
+
+        // then
+        val visualisedString = adjacencyList.visualise()
+        val stringEdges = visualisedString.split("\n")
+        assertThat(stringEdges.size).isEqualTo(3)
+
+        // and
+        val edgesIterator = stringEdges.iterator()
+        val firstString = edgesIterator.next()
+        assertThat(firstString).isEqualTo("first value ====> [last value]")
+
+        // and
+        val secondString = edgesIterator.next()
+        assertThat(secondString).isEqualTo("last value ====> []")
+
+        // and
+        val thirdString = edgesIterator.next()
+        assertThat(thirdString).isEqualTo("")
+    }
 }
