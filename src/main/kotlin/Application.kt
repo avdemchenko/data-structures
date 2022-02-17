@@ -27,5 +27,8 @@ fun showAdjacencyList() {
     graph.add(UNDIRECTED, sanFrancisco, seattle, 320.0)
     graph.add(UNDIRECTED, dallas, sanFrancisco, 305.0)
 
+    println("\n========= Graph coordinates =======================\n")
     println(graph.visualise())
+    println("\n========= Weight between Kharkiv and Kyiv =========\n")
+    println(graph.weight(kharkiv, kyiv))
 }
