@@ -1,5 +1,8 @@
 package graph.core
 
+import graph.core.EdgeType.DIRECTED
+import graph.core.EdgeType.UNDIRECTED
+
 interface Graph<T> {
 
     fun createVertex(data: T): Vertex<T>
@@ -11,7 +14,12 @@ interface Graph<T> {
         addDirectedEdge(destination, source, weight)
     }
 
-    fun add(edgeType: EdgeType, source: Vertex<T>, destination: Vertex<T>, weight: Double)
+    fun add(edgeType: EdgeType, source: Vertex<T>, destination: Vertex<T>, weight: Double) {
+        when (edgeType) {
+            DIRECTED -> addDirectedEdge(source, destination, weight)
+            UNDIRECTED -> addUndirectedEdge(source, destination, weight)
+        }
+    }
 
     fun edges(source: Vertex<T>): ArrayList<Edge<T>>
 
