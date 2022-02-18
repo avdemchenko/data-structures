@@ -2,6 +2,8 @@ package graph
 
 import graph.core.Edge
 import graph.core.EdgeType
+import graph.core.EdgeType.DIRECTED
+import graph.core.EdgeType.UNDIRECTED
 import graph.core.Graph
 import graph.core.Vertex
 
@@ -27,19 +29,30 @@ class AdjacencyMatrix<T>: Graph<T> {
     }
 
     override fun addDirectedEdge(source: Vertex<T>, destination: Vertex<T>, weight: Double) {
-        TODO("Not yet implemented")
+        weights[source.index][destination.index] = weight
     }
 
     override fun addUndirectedEdge(source: Vertex<T>, destination: Vertex<T>, weight: Double) {
-        TODO("Not yet implemented")
+        addDirectedEdge(source, destination, weight)
+        addDirectedEdge(destination, source, weight)
     }
 
     override fun add(edgeType: EdgeType, source: Vertex<T>, destination: Vertex<T>, weight: Double) {
-        TODO("Not yet implemented")
+        when (edgeType) {
+            DIRECTED -> addDirectedEdge(source, destination, weight)
+            UNDIRECTED -> addUndirectedEdge(source, destination, weight)
+        }
     }
 
     override fun edges(source: Vertex<T>): ArrayList<Edge<T>> {
-        TODO("Not yet implemented")
+        val edges = arrayListOf<Edge<T>>()
+        (0 until weights.size).forEach { column ->
+            val weight = weights[source.index][column]
+            if (weight != null) {
+                edges.add(Edge(source, verticies[column], weight))
+            }
+        }
+        return edges
     }
 
     override fun weight(source: Vertex<T>, destination: Vertex<T>): Double? {
