@@ -21,11 +21,6 @@ class AdjacencyList<T> : Graph<T> {
         adjacencies[source]?.add(edge)
     }
 
-    override fun addUndirectedEdge(source: Vertex<T>, destination: Vertex<T>, weight: Double) {
-        addDirectedEdge(source, destination, weight)
-        addDirectedEdge(destination, source, weight)
-    }
-
     override fun add(edgeType: EdgeType, source: Vertex<T>, destination: Vertex<T>, weight: Double) {
         when (edgeType) {
             DIRECTED -> addDirectedEdge(source, destination, weight)
