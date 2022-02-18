@@ -40,7 +40,6 @@ class AdjacencyMatrix<T>: Graph<T> {
         return edges
     }
 
-    override fun weight(source: Vertex<T>, destination: Vertex<T>): Double? {
-        TODO("Not yet implemented")
-    }
+    override fun weight(source: Vertex<T>, destination: Vertex<T>): Double? =
+        weights[source.index][destination.index]
 }
