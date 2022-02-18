@@ -1,9 +1,6 @@
 package graph
 
 import graph.core.Edge
-import graph.core.EdgeType
-import graph.core.EdgeType.DIRECTED
-import graph.core.EdgeType.UNDIRECTED
 import graph.core.Graph
 import graph.core.Vertex
 
