@@ -32,13 +32,6 @@ class AdjacencyMatrix<T>: Graph<T> {
         weights[source.index][destination.index] = weight
     }
 
-    override fun add(edgeType: EdgeType, source: Vertex<T>, destination: Vertex<T>, weight: Double) {
-        when (edgeType) {
-            DIRECTED -> addDirectedEdge(source, destination, weight)
-            UNDIRECTED -> addUndirectedEdge(source, destination, weight)
-        }
-    }
-
     override fun edges(source: Vertex<T>): ArrayList<Edge<T>> {
         val edges = arrayListOf<Edge<T>>()
         (0 until weights.size).forEach { column ->
