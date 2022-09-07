@@ -4,7 +4,7 @@ import graph.core.Edge
 import graph.core.Graph
 import graph.core.Vertex
 
-class AdjacencyMatrix<T>: Graph<T> {
+class AdjacencyMatrix<T> : Graph<T> {
 
     private val verticies = arrayListOf<Vertex<T>>()
     private val weights = arrayListOf<ArrayList<Double?>>()
