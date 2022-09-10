@@ -17,6 +17,13 @@ fun showLifoStack() {
     println("Popped: " + stack.pop())
     println("Popped: " + stack.pop())
     println()
+
+    val stackFromList = LifoStack.create(listOf(1, 2, 3))
+    println("LIFO stack from list:\n" + stackFromList.visualise())
+    println("Popped: " + stackFromList.pop())
+    println("Popped: " + stackFromList.pop())
+    println("Popped: " + stackFromList.pop())
+    println()
 }
 
 fun showFifoStack() {
@@ -30,5 +37,12 @@ fun showFifoStack() {
     println("Popped: " + stack.pop())
     println("Popped: " + stack.pop())
     println("Popped: " + stack.pop())
+    println()
+
+    val stackFromList = FifoStack.create(listOf(1, 2, 3))
+    println("FIFO stack from list:\n" + stackFromList.visualise())
+    println("Popped: " + stackFromList.pop())
+    println("Popped: " + stackFromList.pop())
+    println("Popped: " + stackFromList.pop())
     println()
 }
