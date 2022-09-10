@@ -3,6 +3,7 @@ package graph
 import graph.core.Edge
 import graph.core.Graph
 import graph.core.Vertex
+import graph.exception.NoSuchVertexException
 
 class AdjacencyList<T> : Graph<T> {
     private val adjacencies = HashMap<Vertex<T>, ArrayList<Edge<T>>>()
@@ -14,8 +15,9 @@ class AdjacencyList<T> : Graph<T> {
     }
 
     override fun addDirectedEdge(source: Vertex<T>, destination: Vertex<T>, weight: Double) {
+        val adjacentSource = adjacencies[source] ?: throw NoSuchVertexException(source.index)
         val edge = Edge(source, destination, weight)
-        adjacencies[source]?.add(edge)
+        adjacentSource.add(edge)
     }
 
     override fun edges(source: Vertex<T>) = adjacencies[source] ?: arrayListOf()
