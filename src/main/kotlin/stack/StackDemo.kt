@@ -1,8 +1,11 @@
 package stack
 
+import java.util.LinkedList
+
 fun main() {
     showLifoStack()
     showFifoStack()
+    reverseLinkedList()
 }
 
 fun showLifoStack() {
@@ -45,4 +48,13 @@ fun showFifoStack() {
     println("Popped: " + stackFromList.pop())
     println("Popped: " + stackFromList.pop())
     println()
+}
+
+fun reverseLinkedList() {
+    var list = LinkedList(listOf(1, 2, 3, 4))
+    val stack = LifoStack<Int>()
+
+    list.forEach { stack.push(it) }
+
+    println("Reversed LinkedList with LIFO stack:\n" + stack.visualise())
 }
