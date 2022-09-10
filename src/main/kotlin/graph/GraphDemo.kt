@@ -2,7 +2,7 @@ import graph.AdjacencyList
 import graph.AdjacencyMatrix
 import graph.core.EdgeType.UNDIRECTED
 
-fun main(args: Array<String>) {
+fun main() {
     showAdjacencyList()
     showAdjacencyMatrix()
 }
