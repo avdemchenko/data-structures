@@ -25,4 +25,40 @@ class LifoStackTest {
         assertThat(second).isEqualTo("Second")
         assertThat(first).isEqualTo("First")
     }
+
+    @Test
+    fun `should peek element`() {
+        // given
+        val stack = LifoStack<String>()
+
+        // when
+        stack.push("First")
+
+        // and
+        val peek = stack.peek()
+        val first = stack.pop()
+
+        // then
+        assertThat(peek).isEqualTo("First")
+        assertThat(first).isEqualTo("First")
+    }
+
+    @Test
+    fun `should create stack from list`() {
+        // given
+        val list = arrayListOf("First", "Second", "Third")
+
+        // when
+        val stack = LifoStack.create(list)
+
+        // and
+        val first = stack.pop()
+        val second = stack.pop()
+        val third = stack.pop()
+
+        // then
+        assertThat(first).isEqualTo("Third")
+        assertThat(second).isEqualTo("Second")
+        assertThat(third).isEqualTo("First")
+    }
 }
