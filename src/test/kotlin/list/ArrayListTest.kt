@@ -86,6 +86,25 @@ class ArrayListTest {
     }
 
     @Test
+    fun `should get first element`() {
+        // given
+        val list = ArrayList<Int>()
+
+        // when
+        val firstNull = list.first()
+        list.add(1)
+        list.add(2)
+        list.add(3)
+
+        // and
+        val first = list.first()
+
+        // then
+        assertThat(firstNull).isNull()
+        assertThat(first).isEqualTo(1)
+    }
+
+    @Test
     fun `should not add element with wrong index`() {
         // given
         val list = ArrayList<Int>()

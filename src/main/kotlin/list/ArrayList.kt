@@ -26,6 +26,10 @@ class ArrayList<T : Any?> : List<T> {
         else throw ArrayIndexOutOfBoundsException()
     }
 
+    override fun first(): T? {
+        return elements[0] as T
+    }
+
     private fun resizeIfNecessary() {
         if (elements.size == size) {
             val array = arrayOfNulls<Any>(elements.size * 2)
