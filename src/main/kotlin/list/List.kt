@@ -9,4 +9,6 @@ interface List<T> {
     fun get(index: Int): T?
 
     fun first(): T?
+
+    fun last(): T?
 }

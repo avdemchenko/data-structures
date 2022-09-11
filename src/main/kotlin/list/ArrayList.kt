@@ -26,8 +26,14 @@ class ArrayList<T : Any?> : List<T> {
         else throw ArrayIndexOutOfBoundsException()
     }
 
+    @Suppress("UNCHECKED_CAST")
     override fun first(): T? {
-        return elements[0] as T
+        return elements.first() as T
+    }
+
+    @Suppress("UNCHECKED_CAST")
+    override fun last(): T? {
+        return elements[elements.size - 1] as T
     }
 
     private fun resizeIfNecessary() {
