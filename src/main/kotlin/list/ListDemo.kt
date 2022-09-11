@@ -1,8 +1,10 @@
 package list
 
 fun main() {
-    val test = ArrayListImpl<String>()
+    val test = ArrayList<String>()
 
+    test.add("First")
+    test.add("First")
     test.add("First")
     test.add("First")
     test.add("First")
