@@ -6,5 +6,5 @@ interface List<T> {
 
     fun add(index: Int, element: T)
 
-    fun get(index: Int): T
+    fun get(index: Int): T?
 }

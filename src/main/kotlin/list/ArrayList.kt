@@ -2,7 +2,7 @@ package list
 
 import java.lang.System.arraycopy
 
-class ArrayList<T : Any> : List<T> {
+class ArrayList<T : Any?> : List<T> {
     private var elements: Array<Any?> = arrayOfNulls(DEFAULT_CAPACITY)
     private var size: Int = 0
 
@@ -21,7 +21,7 @@ class ArrayList<T : Any> : List<T> {
     }
 
     @Suppress("UNCHECKED_CAST")
-    override fun get(index: Int): T {
+    override fun get(index: Int): T? {
         if (index in elements.indices) return elements[index] as T
         else throw ArrayIndexOutOfBoundsException()
     }
