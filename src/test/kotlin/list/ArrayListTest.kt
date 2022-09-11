@@ -105,6 +105,27 @@ class ArrayListTest {
     }
 
     @Test
+    fun `should get last element`() {
+        // given
+        val list = ArrayList<Int>()
+
+        // when
+        val lastNull = list.last()
+        list.add(1)
+        list.add(2)
+        list.add(3)
+        list.add(4)
+        list.add(5)
+
+        // and
+        val last = list.last()
+
+        // then
+        assertThat(lastNull).isNull()
+        assertThat(last).isEqualTo(5)
+    }
+
+    @Test
     fun `should not add element with wrong index`() {
         // given
         val list = ArrayList<Int>()
