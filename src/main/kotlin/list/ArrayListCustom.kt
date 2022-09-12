@@ -57,6 +57,8 @@ class ArrayListCustom<T : Any?> : List<T> {
         return false
     }
 
+    override fun isEmpty(): Boolean = size == 0
+
     private fun resizeIfNecessary() {
         if (elements.size == size) {
             val array = arrayOfNulls<Any>(elements.size * 2)

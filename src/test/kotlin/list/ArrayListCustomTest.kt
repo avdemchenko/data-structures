@@ -186,6 +186,27 @@ class ArrayListCustomTest {
     }
 
     @Test
+    fun `should verify if list is empty`() {
+        // given
+        val list = ArrayListCustom<Int>()
+
+        // when
+        val emptyResult = list.isEmpty()
+
+        // and
+        list.add(1)
+        list.add(2)
+        list.add(3)
+
+        // and
+        val notEmptyResult = list.isEmpty()
+
+        // then
+        assertThat(emptyResult).isTrue
+        assertThat(notEmptyResult).isFalse
+    }
+
+    @Test
     fun `should not add element with wrong index`() {
         // given
         val list = ArrayListCustom<Int>()
