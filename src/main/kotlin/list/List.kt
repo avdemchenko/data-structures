@@ -19,4 +19,6 @@ interface List<T> {
     fun contains(element: T): Boolean
 
     fun isEmpty(): Boolean
+
+    fun size(): Int
 }
