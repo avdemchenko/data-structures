@@ -146,6 +146,27 @@ class ArrayListCustomTest {
     }
 
     @Test
+    fun `should remove element`() {
+        // given
+        val list = ArrayListCustom<Int>()
+
+        // when
+        list.add(1)
+        list.add(2)
+        list.add(3)
+
+        // and
+        val removed = list.remove(1)
+
+        // and
+        val shiftedElement = list.get(1)
+
+        // then
+        assertThat(removed).isEqualTo(2)
+        assertThat(shiftedElement).isEqualTo(3)
+    }
+
+    @Test
     fun `should not add element with wrong index`() {
         // given
         val list = ArrayListCustom<Int>()
