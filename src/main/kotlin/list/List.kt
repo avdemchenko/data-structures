@@ -17,4 +17,6 @@ interface List<T> {
     fun remove(index: Int): T?
 
     fun contains(element: T): Boolean
+
+    fun isEmpty(): Boolean
 }
