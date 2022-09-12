@@ -21,4 +21,6 @@ interface List<T> {
     fun isEmpty(): Boolean
 
     fun size(): Int
+
+    fun clear()
 }

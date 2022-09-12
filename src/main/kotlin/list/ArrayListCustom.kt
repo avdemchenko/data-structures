@@ -61,6 +61,11 @@ class ArrayListCustom<T : Any?> : List<T> {
 
     override fun isEmpty(): Boolean = size == 0
 
+    override fun clear() {
+        size = 0
+        elements = arrayOfNulls(DEFAULT_CAPACITY)
+    }
+
     private fun resizeIfNecessary() {
         if (elements.size == size) {
             val array = arrayOfNulls<Any>(elements.size * 2)

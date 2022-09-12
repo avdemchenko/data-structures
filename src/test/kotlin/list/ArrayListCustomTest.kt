@@ -224,6 +224,44 @@ class ArrayListCustomTest {
     }
 
     @Test
+    fun `should clear list`() {
+        // given
+        val list = ArrayListCustom<Int>()
+
+        // when
+        list.add(1)
+        list.add(2)
+        list.add(3)
+
+        // and
+        val listSizeBeforeClear = list.size()
+        val firstElementBeforeClear = list.get(0)
+        val secondElementBeforeClear = list.get(1)
+        val thirdElementBeforeClear = list.get(2)
+
+        // and
+        list.clear()
+        val listSizeAfterClear = list.size()
+        val firstElementAfterClear = list.get(0)
+        val secondElementAfterClear = list.get(1)
+        val thirdElementAfterClear = list.get(2)
+
+        // then
+        assertThat(listSizeBeforeClear).isEqualTo(3)
+        assertThat(listSizeAfterClear).isEqualTo(0)
+
+        // and
+        assertThat(firstElementBeforeClear).isEqualTo(1)
+        assertThat(secondElementBeforeClear).isEqualTo(2)
+        assertThat(thirdElementBeforeClear).isEqualTo(3)
+
+        // and
+        assertThat(firstElementAfterClear).isNull()
+        assertThat(secondElementAfterClear).isNull()
+        assertThat(thirdElementAfterClear).isNull()
+    }
+
+    @Test
     fun `should not add element with wrong index`() {
         // given
         val list = ArrayListCustom<Int>()
