@@ -4,12 +4,12 @@ import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 
-class ArrayListTest {
+class ArrayListCustomTest {
 
     @Test
     fun `should add and get elements`() {
         // given
-        val list = ArrayList<Int>()
+        val list = ArrayListCustom<Int>()
 
         // when
         list.add(1)
@@ -34,7 +34,7 @@ class ArrayListTest {
     @Test
     fun `should add element by index`() {
         // given
-        val list = ArrayList<Int>()
+        val list = ArrayListCustom<Int>()
 
         // when
         list.add(1)
@@ -60,7 +60,7 @@ class ArrayListTest {
     @Test
     fun `should extend capacity twice of size with null values`() {
         // given
-        val list = ArrayList<Int>()
+        val list = ArrayListCustom<Int>()
 
         // when
         list.add(1)
@@ -88,7 +88,7 @@ class ArrayListTest {
     @Test
     fun `should get first element`() {
         // given
-        val list = ArrayList<Int>()
+        val list = ArrayListCustom<Int>()
 
         // when
         val firstNull = list.first()
@@ -107,7 +107,7 @@ class ArrayListTest {
     @Test
     fun `should get last element`() {
         // given
-        val list = ArrayList<Int>()
+        val list = ArrayListCustom<Int>()
 
         // when
         val lastNull = list.last()
@@ -126,9 +126,29 @@ class ArrayListTest {
     }
 
     @Test
+    fun `should set element`() {
+        // given
+        val list = ArrayListCustom<Int>()
+
+        // when
+        list.add(1)
+        list.add(2)
+        list.add(3)
+
+        // and
+        list.set(1, 10)
+
+        // and
+        val updated = list.get(1)
+
+        // then
+        assertThat(updated).isEqualTo(10)
+    }
+
+    @Test
     fun `should not add element with wrong index`() {
         // given
-        val list = ArrayList<Int>()
+        val list = ArrayListCustom<Int>()
 
         // when
         list.add(1)

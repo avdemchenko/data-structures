@@ -11,4 +11,6 @@ interface List<T> {
     fun first(): T?
 
     fun last(): T?
+
+    fun set(index: Int, element: T)
 }
