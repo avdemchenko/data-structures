@@ -167,6 +167,25 @@ class ArrayListCustomTest {
     }
 
     @Test
+    fun `should verify if element contains`() {
+        // given
+        val list = ArrayListCustom<Int>()
+
+        // when
+        list.add(1)
+        list.add(2)
+        list.add(3)
+
+        // and
+        val containedElement = list.contains(3)
+        val missedElement = list.contains(5)
+
+        // then
+        assertThat(containedElement).isTrue
+        assertThat(missedElement).isFalse
+    }
+
+    @Test
     fun `should not add element with wrong index`() {
         // given
         val list = ArrayListCustom<Int>()

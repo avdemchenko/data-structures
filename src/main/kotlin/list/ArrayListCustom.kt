@@ -50,6 +50,13 @@ class ArrayListCustom<T : Any?> : List<T> {
         } else throw ArrayIndexOutOfBoundsException()
     }
 
+    override fun contains(element: T): Boolean {
+        for (i in elements.indices) {
+            if (elements[i] == element) return true
+        }
+        return false
+    }
+
     private fun resizeIfNecessary() {
         if (elements.size == size) {
             val array = arrayOfNulls<Any>(elements.size * 2)
