@@ -74,6 +74,12 @@ class ArrayListCustom<T : Any?> : List<T> {
         }
     }
 
+    fun visualise() = buildString {
+        appendLine("----ArrayList----")
+        elements.forEach { append(" $it") }
+        appendLine("\n---------------")
+    }
+
     private companion object {
         const val DEFAULT_CAPACITY = 5
     }
