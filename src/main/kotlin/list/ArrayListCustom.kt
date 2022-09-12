@@ -41,6 +41,15 @@ class ArrayListCustom<T : Any?> : List<T> {
         else throw ArrayIndexOutOfBoundsException()
     }
 
+    @Suppress("UNCHECKED_CAST")
+    override fun remove(index: Int): T? {
+        if (index in elements.indices) {
+            val removedElement = elements[index] as T
+            arraycopy(elements, index + 1, elements, index, elements.size - index - 1)
+            return removedElement
+        } else throw ArrayIndexOutOfBoundsException()
+    }
+
     private fun resizeIfNecessary() {
         if (elements.size == size) {
             val array = arrayOfNulls<Any>(elements.size * 2)
