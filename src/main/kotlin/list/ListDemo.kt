@@ -1,14 +1,23 @@
 package list
 
 fun main() {
-    val test = ArrayListCustom<String>()
+    showArrayList()
+}
 
-    test.add("First")
-    test.add("First")
-    test.add("First")
-    test.add("First")
-    test.add("First")
-    test.add("First")
+fun showArrayList() {
+    val list = ArrayListCustom<String>()
 
-    println(test.toString())
+    list.add("First")
+    list.add("Second")
+    list.add("Third")
+    list.add("Fourth")
+    list.add("Fifth")
+
+    println(list.visualise())
+
+    println("Size: " + list.size())
+    println("First element: " + list.first())
+    println("Last element: " + list.last())
+    println("Removed: " + list.remove(1))
+    println("Contains: " + list.contains("Third"))
 }
