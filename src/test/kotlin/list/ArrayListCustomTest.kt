@@ -207,6 +207,23 @@ class ArrayListCustomTest {
     }
 
     @Test
+    fun `should calculate size`() {
+        // given
+        val list = ArrayListCustom<Int>()
+
+        // when
+        list.add(1)
+        list.add(2)
+        list.add(3)
+
+        // and
+        val listSize = list.size()
+
+        // then
+        assertThat(listSize).isEqualTo(3)
+    }
+
+    @Test
     fun `should not add element with wrong index`() {
         // given
         val list = ArrayListCustom<Int>()

@@ -57,6 +57,8 @@ class ArrayListCustom<T : Any?> : List<T> {
         return false
     }
 
+    override fun size(): Int = size
+
     override fun isEmpty(): Boolean = size == 0
 
     private fun resizeIfNecessary() {
