@@ -1,6 +1,12 @@
 package list
 
+import list.core.Node
+
 class LinkedListCustom<T> : List<T> {
+    private var head: Node<T>? = null
+    private var tail: Node<T>? = null
+    private var size: Int = 0
+
     override fun add(element: T) {
         TODO("Not yet implemented")
     }
@@ -33,9 +39,7 @@ class LinkedListCustom<T> : List<T> {
         TODO("Not yet implemented")
     }
 
-    override fun isEmpty(): Boolean {
-        TODO("Not yet implemented")
-    }
+    override fun isEmpty(): Boolean = size == 0
 
     override fun size(): Int {
         TODO("Not yet implemented")
