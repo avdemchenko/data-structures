@@ -47,9 +47,7 @@ class LinkedListCustom<T> : List<T> {
 
     override fun isEmpty(): Boolean = size == 0
 
-    override fun size(): Int {
-        TODO("Not yet implemented")
-    }
+    override fun size(): Int = size
 
     override fun clear() {
         TODO("Not yet implemented")
