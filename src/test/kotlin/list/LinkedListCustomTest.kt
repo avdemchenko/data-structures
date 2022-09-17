@@ -31,6 +31,7 @@ class LinkedListCustomTest {
 
         // then
         assertThat(list.size()).isEqualTo(5)
+        println(list.visualise())
     }
 
     @Test

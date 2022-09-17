@@ -58,9 +58,12 @@ class LinkedListCustom<T> : List<T> {
     fun visualise() = buildString {
         appendLine("----LinkedList----")
         appendLine("HEAD: " + head?.value)
-        while (head?.next != null) {
-            append(" --->" + head?.next)
+        var node = head
+        while (node != null) {
+            append(" ---> ${node.value}")
+            node = node.next
         }
+        appendLine("\nTAIL: " + tail?.value)
         appendLine("\n----------------")
     }
 }
