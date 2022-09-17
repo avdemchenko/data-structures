@@ -8,7 +8,13 @@ class LinkedListCustom<T> : List<T> {
     private var size: Int = 0
 
     override fun add(element: T) {
-        TODO("Not yet implemented")
+        if (head?.next == null) {
+            head = Node(element)
+            tail = head
+        } else {
+            tail?.next = Node(element)
+        }
+        size++
     }
 
     override fun add(index: Int, element: T) {
@@ -47,5 +53,14 @@ class LinkedListCustom<T> : List<T> {
 
     override fun clear() {
         TODO("Not yet implemented")
+    }
+
+    fun visualise() = buildString {
+        appendLine("----LinkedList----")
+        appendLine("HEAD: " + head?.value)
+        while (head?.next != null) {
+            append(" --->" + head?.next)
+        }
+        appendLine("\n----------------")
     }
 }

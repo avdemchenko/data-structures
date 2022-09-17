@@ -1,3 +1,3 @@
 package list.core
 
-data class Node<T>(var value: T, val next: Node<T>? = null)
+data class Node<T>(var value: T, var next: Node<T>? = null)
