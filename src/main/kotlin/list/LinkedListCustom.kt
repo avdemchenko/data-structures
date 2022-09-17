@@ -8,11 +8,13 @@ class LinkedListCustom<T> : List<T> {
     private var size: Int = 0
 
     override fun add(element: T) {
-        if (head?.next == null) {
-            head = Node(element)
+        val node = Node(element)
+        if (size == 0) {
+            head = node
             tail = head
         } else {
-            tail?.next = Node(element)
+            tail?.next = node
+            tail = node
         }
         size++
     }
