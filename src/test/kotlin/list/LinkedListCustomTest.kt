@@ -32,4 +32,19 @@ class LinkedListCustomTest {
         // then
         assertThat(list.size()).isEqualTo(5)
     }
+
+    @Test
+    fun `should is empty`() {
+        // given
+        val list = LinkedListCustom<Int>()
+
+        // when
+        val beforeAddingElements = list.isEmpty()
+        list.add(1)
+        val afterAddingElements = list.isEmpty()
+
+        // then
+        assertThat(beforeAddingElements).isTrue
+        assertThat(afterAddingElements).isFalse
+    }
 }
