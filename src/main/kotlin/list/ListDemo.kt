@@ -2,6 +2,7 @@ package list
 
 fun main() {
     showArrayList()
+    showLinkedList()
 }
 
 fun showArrayList() {
@@ -20,4 +21,24 @@ fun showArrayList() {
     println("Last element: " + list.last())
     println("Removed: " + list.remove(1))
     println("Contains: " + list.contains("Third"))
+}
+
+fun showLinkedList() {
+    val list = LinkedListCustom<String>()
+
+    list.push("First")
+    list.push("Second")
+    list.push("Third")
+    list.push("Fourth")
+    list.push("Fifth")
+
+    println(list)
+
+    list.append("First")
+    list.append("Second")
+    list.append("Third")
+    list.append("Fourth")
+    list.append("Fifth")
+
+    println(list)
 }
