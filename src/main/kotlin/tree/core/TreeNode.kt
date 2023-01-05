@@ -1,6 +1,5 @@
 package tree.core
 
-import java.util.Queue
 import queue.ArrayListQueue
 
 class TreeNode<T>(val value: T) {
@@ -38,3 +37,5 @@ class TreeNode<T>(val value: T) {
         return result
     }
 }
+
+typealias Visitor<T> = (TreeNode<T>) -> Unit
